@@ -28,3 +28,14 @@ Desktop.ini
 ~$*
 *.swp
 *.swo
+
+# WordPress backups, runtime state, and local credentials
+backups/
+*.sql.*
+*.dump
+*.dump.*
+admin-password.txt
+admin-username.txt
+*.credentials
+*.credentials.*
+wordpress-dev/

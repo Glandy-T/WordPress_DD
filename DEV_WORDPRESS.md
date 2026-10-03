@@ -14,12 +14,11 @@
 python3 /workspace/WordPress_DD/dev/wordpress/prepare.py
 cd /workspace/wordpress-dev
 docker compose pull
-docker compose up -d
-python3 bootstrap.py
+docker compose up -d --wait
 python3 verify.py
 ```
 
-`docker compose up -d` 等待数据库健康。新站首次初始化时会创建仅供开发使用的账号 `dd_dev_admin`。随机密码位于仓库外的 `/workspace/wordpress-dev/admin-password.txt`，不得输出到日志、复制到文档或提交到 GitHub。现有数据库和凭据会保留。学校账号不用于此站。
+已有站点只需启动并验证。如果原有数据丢失，应先按 [BACKUP_RESTORE.md](BACKUP_RESTORE.md) 恢复备份，不要自动初始化空站。`bootstrap.py` 仅用于明确要求创建全新空站的场景。`docker compose up -d --wait` 等待数据库健康。新站首次初始化时会创建随机命名的开发账号。用户名位于仓库外的 `admin-username.txt`。随机密码位于仓库外的 `/workspace/wordpress-dev/admin-password.txt`，不得输出到日志、复制到文档或提交到 GitHub。现有数据库和凭据会保留。学校账号不用于此站。
 
 开发服务仅绑定本机端口 8080；通过当前执行环境内的浏览器或内部请求验证。正式托管前需要配置固定域名、HTTPS、备份和有效邮件服务；不能直接把此开发配置当作公网部署配置。
 
@@ -30,7 +29,7 @@ python3 verify.py
 - `/workspace/wordpress-dev/.env`：随机数据库凭据。
 - GitHub 的 `dev/wordpress/`：可复用的配置与检查脚本，不含数据库、媒体或凭据。
 
-仅推送 GitHub 不能保存网站的全部状态。云环境发布与文件恢复由平台管理，当前仅验证本实例运行与 WordPress 容器重启，未验证新云任务恢复。若更换托管平台，需要单独导出内容、媒体和必要设置，妥善保存备份。不要执行 `docker compose down -v` 或删除数据目录来处理问题。
+仅推送 GitHub 不能保存网站的全部状态。云环境发布与文件恢复由平台管理，当前仅验证本实例运行与 WordPress 容器重启，未验证新云任务恢复。完整备份／恢复使用 [BACKUP_RESTORE.md](BACKUP_RESTORE.md) 的脚本。当前站点已在独立目录中做过恢复验证，但未验证平台自动跨任务恢复。下载并独立保管备份才是环境删除后的恢复依据。不要执行 `docker compose down -v` 或删除数据目录来处理问题。
 
 ## 后续迁移到学校站点
 

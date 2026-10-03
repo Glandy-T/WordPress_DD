@@ -42,3 +42,9 @@ GitHub 网页完成提交后就已经保存到云端，不需要再执行 Push�
 云端助手使用 `/workspace/WordPress_DD` 的现有 checkout；云任务本身已隔离，不需要另建 Git worktree。开始前检查 `git status`，工作区干净时执行 `git pull --ff-only origin main`，获取用户在 GitHub 网页的最新修改；有本地修改时先妥善保留，再处理同步。阅读 README、TASKS、DESIGN_NOTES 和最新 LOG 后继续。
 
 这是文档仓库，不需要 npm、PHP、数据库或启动 Web 服务。历史日志中的网站状态需另行核实，不能当作当前在线验证结果。完成仓库修改后提交并推送，确认远端已保存。
+
+## 独立 WordPress 开发站的备份
+
+GitHub 的 Commit 只保存原稿、说明和脚本，不保存开发站的数据库、页面状态、菜单、设置或上传媒体。重要修改完成后，由云端助手运行 `scripts/backup.sh`；你需要下载 `backups/` 中本次完整的 `.tar.gz` 文件，另外私人保管。当前备份不加密，不上传 GitHub。
+
+云环境重建后，把备份上传到新环境，再使用 `scripts/restore.sh` 恢复。脚本拒绝覆盖已有站点，完整流程见 [BACKUP_RESTORE.md](BACKUP_RESTORE.md)。只有确认备份已保存到环境之外，才可应对当前云机器删除。

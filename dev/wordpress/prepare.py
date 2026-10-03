@@ -1,7 +1,7 @@
 from pathlib import Path
-import secrets,shutil
+import secrets,shutil,os
 source=Path(__file__).resolve().parent
-root=Path('/workspace/wordpress-dev');root.mkdir(mode=0o700,parents=True,exist_ok=True)
+root=Path(os.environ.get('WP_DEV_DIR','/workspace/wordpress-dev'));root.mkdir(mode=0o700,parents=True,exist_ok=True)
 for name in ['compose.yaml','bootstrap.php','bootstrap.py','verify.py']:
  target=root/name
  if target.exists() and target.read_bytes()!= (source/name).read_bytes():
