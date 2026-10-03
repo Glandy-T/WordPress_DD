@@ -1,0 +1,30 @@
+# Local credentials: never commit
+accout.txt
+account.txt
+accounts.txt
+credentials.txt
+.env
+.env.*
+!.env.example
+wp-config.php
+*.pem
+*.key
+
+# Temporary files and local exports
+/tmp/
+/cache/
+/backups/
+*.sql
+*.sql.gz
+*.zip
+*.log
+*.tmp
+*.bak
+
+# Editor and operating system files
+.DS_Store
+Thumbs.db
+Desktop.ini
+~$*
+*.swp
+*.swo
