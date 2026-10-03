@@ -12,7 +12,7 @@ $template = wp_insert_post([
     'ID' => $templates ? $templates[0]->ID : 0,
     'post_type'=>'wp_template','post_status'=>'publish','post_name'=>$template_slug,
     'post_title'=>'DD development canvas',
-    'post_content'=>'<!-- wp:group {"tagName":"main","layout":{"type":"default"}} --><main class="wp-block-group"><!-- wp:post-content {"layout":{"type":"default"}} /--></main><!-- /wp:group -->',
+    'post_content'=>file_get_contents('/tmp/dd-content/header.html').'<!-- wp:group {"tagName":"main","layout":{"type":"constrained"}} --><main class="wp-block-group"><!-- wp:post-content {"align":"full","layout":{"type":"constrained"}} /--></main><!-- /wp:group -->'.file_get_contents('/tmp/dd-content/footer.html'),
 ], true);
 if (is_wp_error($template)) {fwrite(STDERR,"Template creation failed\n");exit(1);}
 wp_set_object_terms($template, get_stylesheet(), 'wp_theme');
@@ -29,8 +29,12 @@ function dd_save_page($slug, $title, $surface, $content) {
     return $id;
 }
 $wireframe=dd_save_page('dd-development-wireframe','ホーム構造草稿（開発用）','wireframe',file_get_contents('/tmp/dd-content/home-wireframe.html'));
-$prototype_content=str_replace('__WIREFRAME_ID__',(string)$wireframe,file_get_contents('/tmp/dd-content/grade-prototype.html'));
-$prototype=dd_save_page('dd-grade-entry-prototype','年次入口・幾何構成の試作','grade-prototype',$prototype_content);
+// Retire the rejected experiment, preserving it privately as a draft only.
+$prototype=get_page_by_path('dd-grade-entry-prototype');
+if ($prototype && get_post_meta($prototype->ID, '_dd_design_surface', true)==='grade-prototype') {
+    wp_update_post(['ID'=>$prototype->ID,'post_status'=>'draft']);
+    delete_post_meta($prototype->ID, '_dd_design_surface');
+}
 update_option('show_on_front','page');
 update_option('page_on_front',$wireframe);
-echo json_encode(['wireframe_page_id'=>$wireframe,'prototype_page_id'=>$prototype,'template_id'=>$template])."\n";
+echo json_encode(['wireframe_page_id'=>$wireframe,'template_id'=>$template])."\n";

@@ -69,6 +69,6 @@ WordPress 管理画面への入力は、原稿をこのフォルダで確認し�
 
 クラウド環境の削除・再作成時に備え、[BACKUP_RESTORE.md](BACKUP_RESTORE.md) の手順で `scripts/backup.sh` を実行し、生成された `backups/` 内の完全バックアップを環境外へダウンロードして保管します。新環境では GitHub の構成と保管したバックアップを `scripts/restore.sh` で復元します。GitHub 自体にはデータベース・メディア・ユーザー資料・認証情報を保存しません。現在は暗号化・自動アップロードを行いません。
 
-## 开发站设计源码
+## 开发站页面源码
 
-首页灰稿和独立年次入口试作的正文、页面专用 CSS / JavaScript 与部署说明保存于 [wordpress/](wordpress/README.md)。结构参考见 [design/grade-entry/](design/grade-entry/README.md)。这些设计源码属于 GitHub 保存范围；实际数据库、上传媒体和凭据仍由私下保存的完整备份恢复。
+学校现有首页灰稿的开发副本、页眉页脚、样式与部署说明保存在 [wordpress/](wordpress/README.md)。后续以学校版本为基准，只按用户明确要求逐项修改。实际数据库、媒体和凭据仍由私下保存的完整备份恢复。
