@@ -140,3 +140,10 @@
 - 桌面观察确认东京设计师学院图片列交替方向位移；读取 INTO 官方说明并检查公开短视频。区分视频播放与实时交互，未制作效果试作。
 - Behance 普通请求包含JavaScript验证；正常浏览器流程仍未出现作品列表。记录实际403／400结果，未将原因断定为AI限制。
 - 第二轮参考和实现判断保存到 `design/references/2026-10-03-motion.md`。仅文档更新，WordPress页面未修改。
+
+## 2026-10-03（FORMAT 动画技术分析）
+
+- 按用户请求读取 FORMAT 公开 HTML、CSS 和主脚本；确认 GSAP／ScrollTrigger、Lenis、Matter.js，以及 DOM／CSS／SVG 和部分 Canvas 2D 效果。
+- 在1440×1000下观察滚动状态与 polygon 轮廓、海报缩小；确认形状统一采样72点、状态变化后约0.55秒过渡。
+- 在390×844下确认原站显示桌面限定提示，不能视为本项目手机方案。分析局部动画、跨区接力和物理效果的不同成本及 WordPress 部署条件。
+- 保存 `design/references/FORMAT-analysis.md`；仅文档更新，没有修改页面或制作项目试作。
