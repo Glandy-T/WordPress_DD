@@ -133,3 +133,10 @@
 - 环境发布后核对网络策略已生效，Awwwards、SiteInspire、Hoverstat.es 和 Pentagram 可访问；Behance 返回网站侧403，未筛选其作品。
 - 读取专业案例资料，并查看 App State、桑沢、Grids、FORMAT、Hoyt 实际桌面页面与滚动后画面；查看 Pentagram 的 MIT Media Lab 说明与图例。未验证手机交互。
 - 将六个案例的链接、对应区域、观察和适用边界保存到 `design/references/2026-10-03.md`。候选待用户选择，学校与开发站页面均未修改；仅文档更新，无需另作站点备份。
+
+## 2026-10-03（第二轮参考与动画可行性研究）
+
+- 根据用户要求继续寻找内容排版与局部动画案例，记录 ICS、东京设计师学院、Order / Salt Lick、Studio Dumbar / INTO 的具体观察与适用范围。
+- 桌面观察确认东京设计师学院图片列交替方向位移；读取 INTO 官方说明并检查公开短视频。区分视频播放与实时交互，未制作效果试作。
+- Behance 普通请求包含JavaScript验证；正常浏览器流程仍未出现作品列表。记录实际403／400结果，未将原因断定为AI限制。
+- 第二轮参考和实现判断保存到 `design/references/2026-10-03-motion.md`。仅文档更新，WordPress页面未修改。
