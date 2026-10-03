@@ -50,7 +50,7 @@ WordPress 管理画面への入力は、原稿をこのフォルダで確認し�
 
 既定の作業方法は WordPress と GitHub の Web 版です。ローカル clone は不要です。WordPress での変更後、原稿・決定事項・進捗を GitHub の Web 編集で保存します。両サービス間の自動同期はありません。
 
-このリポジトリは原稿・設計・制作記録・課件 PDF の保存先です。WordPress 本体、テーマのソース、データベース、アップロード画像のバックアップは含まれていません。GitHub への push は WordPress サイトへの反映ではありません。
+このリポジトリは原稿・設計・制作記録・課件 PDF の保存先です。WordPress 本体、第三者テーマ本体、データベース、アップロード画像のバックアップは含まれていません。独自デザイン用ソースは `wordpress/` に保存します。GitHub への push は WordPress サイトへの反映ではありません。
 
 - リポジトリ: [Glandy-T/WordPress_DD](https://github.com/Glandy-T/WordPress_DD)
 - 学校と自宅の Web 操作・保存手順: [SYNC_GUIDE.md](SYNC_GUIDE.md)
@@ -68,3 +68,7 @@ WordPress 管理画面への入力は、原稿をこのフォルダで確認し�
 ## 開発サイトのバックアップと復元
 
 クラウド環境の削除・再作成時に備え、[BACKUP_RESTORE.md](BACKUP_RESTORE.md) の手順で `scripts/backup.sh` を実行し、生成された `backups/` 内の完全バックアップを環境外へダウンロードして保管します。新環境では GitHub の構成と保管したバックアップを `scripts/restore.sh` で復元します。GitHub 自体にはデータベース・メディア・ユーザー資料・認証情報を保存しません。現在は暗号化・自動アップロードを行いません。
+
+## 开发站设计源码
+
+首页灰稿和独立年次入口试作的正文、页面专用 CSS / JavaScript 与部署说明保存于 [wordpress/](wordpress/README.md)。结构参考见 [design/grade-entry/](design/grade-entry/README.md)。这些设计源码属于 GitHub 保存范围；实际数据库、上传媒体和凭据仍由私下保存的完整备份恢复。
